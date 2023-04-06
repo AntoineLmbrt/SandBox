@@ -58,6 +58,7 @@
     function stop() {
         end = new Date();
         play.classList.remove("stop");
+        play.innerHTML = "Start";
         play.classList.add("start");
         clearInterval(interval);
         distanceValue.innerHTML = Math.round(distance);
@@ -92,6 +93,6 @@
     
     function showTimer() {
         timer = end - beg;
-        return timer.getHours + "H" + timer.getMinutes + "M" + timer.getSeconds + "S";
+        return "test";
     }</script>
 </html>
