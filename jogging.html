@@ -74,7 +74,7 @@
     }
     
     function updateDistance(position) {
-        lat[lat.length] = position.coords.latitute;
+        lat[lat.length] = position.coords.latitude;
         long[long.length] = position.coords.longitude;
         document.querySelector(".test").innerHTML = "len : " + lat.length + " lat : " + lat[lat.length-1] + " long : " + long[long.length-1];
         if (lat.length>5)
