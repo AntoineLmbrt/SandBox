@@ -88,12 +88,12 @@
         const longitude = rad(long2-long1);
         const a = Math.sin(latitude/2)*Math.sin(latitude/2) + Math.cos(rad(lat1))*Math.cos(rad(lat2))*Math.sin(longitude/2)*Math.sin(longitude/2);
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        document.querySelector(".test").innerHTML = earthRadius * c;
+        document.querySelector(".test").innerHTML = "a : " + a + " c : " + c;
         return earthRadius * c;
     }
     
     function rad(angle) {
-        return (Math.PI * angle) / 180;
+        return angle * Math.PI/180;
     }
     
     function showTimer() {
