@@ -82,7 +82,11 @@
     
     function getDistance(lat1, long1, lat2, long2) {
         earthRadius = 6371000;
-        return earthRadius * (Math.PI/2 - Math.asin( Math.sin(rad(lat2)) * Math.sin(rad(lat1)) + Math.cos(rad(long2) - rad(long1)) * Math.cos(rad(lat2)) * Math.cos(rad(lat1))));
+        const latitude = rad(lat2-lat1);
+        const longitude = rad(long2 - long1);
+        const a = Math.sin(latitude/2)*Math.sin(latitude/2) + Math.cos(rad(lat1))*Math.cos(rad(lat2))*Math.sin(longitude/2)*Math.sin(longitude/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return earthRadius * c;
     }
     
     function rad(angle) {
