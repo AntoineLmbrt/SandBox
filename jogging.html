@@ -30,6 +30,7 @@
             <div class="distance">
                 <h1><span class="distance-value">000</span><br>mètres</h1>
             </div>
+            <h5 class="test">test</h5>
         </div>
     </div>
 </body>
@@ -75,6 +76,7 @@
     function updateDistance(position) {
         lat[lat.length] = position.coords.latitute;
         long[long.length] = position.coords.longitude;
+        document.querySelector(".test").innerHTML = "lat : " + position.coords.latitude + " long : " +position.coords.longitude;
         if (lat.length>5)
             distance += getDistance(lat[lat.length-2], long[long.length-2], lat[lat.length-1], long[long.length-1]);
         distanceValue.innerHTML = distance;
