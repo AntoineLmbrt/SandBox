@@ -14,6 +14,7 @@ function start() {
     beg = new Date();
     play.classList.remove("start");
     play.classList.add("stop");
+    play.onclick = "stop"
     interval = setInterval(getLocation, 1000);
 }
 
