@@ -65,7 +65,7 @@
     
     function getLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showDistance);
+            navigator.geolocation.getCurrentPosition(updateDistance);
         } else {
             alert("La géolocalisation n'est pas possible sur ce navigateur");
         }
