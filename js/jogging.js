@@ -1,3 +1,5 @@
+console.log("test");
+
 const play = document.querySelector(".play");
 const distanceValue = document.querySelector(".distance-value");
 const timerValue = document.querySelector(".timer-value");
