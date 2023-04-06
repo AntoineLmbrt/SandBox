@@ -88,7 +88,7 @@
         const longitude = rad(long2-long1);
         const a = Math.sin(latitude/2)*Math.sin(latitude/2) + Math.cos(rad(lat1))*Math.cos(rad(lat2))*Math.sin(longitude/2)*Math.sin(longitude/2);
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        document.querySelector(".test").innerHTML = "a : " + a + " c : " + c;
+        document.querySelector(".test").innerHTML = "lat1 : " + lat1 + " lat2 : " + lat2 + " latitude : " + latitude + " longitude : " + longitude + " a : " + a + " c : " + c;
         return earthRadius * c;
     }
     
