@@ -25,7 +25,8 @@
     </header>
     <div class="content">
         <div class="app">
-            <button class="play start" onclick="start()">Start</button>
+            <button class="start" onclick="start">Start</button>
+            <button class="stop remove" onclick="stop">Stop</button>
             <div class="distance">
                 <h1><span id="distance-value">000</span><br>mètres</h1>
             </div>
@@ -34,7 +35,8 @@
 </body>
 <script src="js/script.js"></script>
 <script>
-    const play = document.querySelector(".play");
+    const startBtn = document.querySelector(".start");
+    const stopBtn = document.querySelector(".stop");
     const distanceValue = document.querySelector(".distance-value");
     const timerValue = document.querySelector(".timer-value");
     
@@ -48,18 +50,16 @@
     
     function start() {
         beg = new Date();
-        play.classList.remove("start");
-        play.classList.add("stop");
-        play.innerHTML = "Stop";
-        play.onclick = stop();
+        startBtn.classList.add("remove");
+        stopBtn.classList.remove("remove");
+        play.onclick = stop;
         interval = setInterval(getLocation, 1000);
     }
     
     function stop() {
         end = new Date();
-        play.classList.remove("stop");
-        play.innerHTML = "Start";
-        play.classList.add("start");
+        stopBtn.classList.add("remove");
+        startBtn.classList.remove("remove");
         clearInterval(interval);
         distanceValue.innerHTML = Math.round(distance);
         timerValue.innerHTML = showTimer();
