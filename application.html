@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV PROJET</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/c58dae0d84.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">UV PROJET</a>
+            <div class="nav-items">
+                <ul>
+                    <li><a href="index.html">Capteurs</a></li>
+                    <li class="active"><a href="application.html">Application</a></li>
+                    <li class="pdf"><a href="docs/rapport.pdf">Télécharger le rapport</a></li>
+                </ul>
+            </div>
+            <i class="menu-icon fa-solid fa-bars"></i>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="app">
+            <button class="start" onclick="start()">Start</button>
+            <button class="stop remove" onclick="stop()">Stop</button>
+            <div class="distance">
+                <h1><span class="distance-value">0</span><br>mètres</h1>
+            </div>
+            <h5><span class="timer-value"></span></h5>
+        </div>
+        <div class="map remove">
+            <div id="map"></div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/application.js"></script>
+</html>
