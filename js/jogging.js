@@ -58,8 +58,19 @@ function rad(angle) {
 }
 
 function showTimer() {
-    timer = end - beg;
-    return timer.getHours() + "H" + timer.getMinutes() + "M" + timer.getSeconds();
+    var timer = {};
+    var tmp = beg - end;
+
+    tmp = Math.floor(tmp/1000);
+    timer.sec = tmp % 60;
+
+    tmp = Math.floor(tmp-timer.sec/60);
+    timer.min = tmp % 60;
+
+    tmp = Math.floor(tmp-timer.min/60);
+    timer.hour = tmp % 24;
+
+    return timer.hour + "H" + timer.min + "M" + timer.sec + "S";
 }
 
 function showMap() {
