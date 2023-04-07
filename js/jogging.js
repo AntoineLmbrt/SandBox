@@ -63,10 +63,10 @@ function showTimer() {
     tmp = Math.floor(tmp/1000);
     s = tmp % 60;
 
-    tmp = Math.floor(tmp-s/60);
+    tmp = Math.floor((tmp-s)/60);
     m = tmp % 60;
 
-    tmp = Math.floor(tmp-m/60);
+    tmp = Math.floor((tmp-m)/60);
     h = tmp % 24;
 
     return h + "H " + m + "M " + s + "S";
@@ -75,7 +75,7 @@ function showTimer() {
 function showMap() {
     var options = {
         center: [0,0],
-        zoom: 10
+        zoom: 14
     }
     var map = new L.map('map', options);
     var layer = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
