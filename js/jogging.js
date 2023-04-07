@@ -3,7 +3,6 @@ const stopBtn = document.querySelector(".stop");
 const distanceValue = document.querySelector(".distance-value");
 const timerValue = document.querySelector(".timer-value");
 const map = document.querySelector(".map");
-const menuIcon = document.querySelector(".menu-icon");
 
 var coords = [];
 var interval = null;
