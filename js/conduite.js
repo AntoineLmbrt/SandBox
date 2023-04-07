@@ -31,7 +31,7 @@ function getLocation() {
 function updateSpeed(position) {
     coords[coords.length] = position.coords;
     if (coords.length>2)
-        speed = getDistance(coords[coords.length-2], coords[coords.length-1]) / 1000;
+        speed = 3600*getDistance(coords[coords.length-2], coords[coords.length-1])/1000;
     speedValue.innerHTML = Math.round(speed);
 }
 
