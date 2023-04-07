@@ -58,7 +58,7 @@ function rad(angle) {
 
 function showTimer() {
     var h, m, s;
-    var tmp = beg - end;
+    var tmp = end - beg;
 
     tmp = Math.floor(tmp/1000);
     s = tmp % 60;
