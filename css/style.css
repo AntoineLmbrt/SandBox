@@ -114,7 +114,7 @@ header {
 
 .app, .map {
     width: 75%;
-    margin: auto;
+    margin: 10px auto;
     padding: 10px;
     background: #3B556D;
     box-shadow: 5px 5px 5px;
