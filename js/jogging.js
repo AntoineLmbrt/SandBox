@@ -2,6 +2,7 @@ const startBtn = document.querySelector(".start");
 const stopBtn = document.querySelector(".stop");
 const distanceValue = document.querySelector(".distance-value");
 const timerValue = document.querySelector(".timer-value");
+const map = document.getElementById("map");
 
 var coords = [];
 var interval = null;
@@ -24,6 +25,7 @@ function stop() {
     clearInterval(interval);
     distanceValue.innerHTML = Math.round(distance);
     timerValue.innerHTML = "Temps : " + showTimer();
+    map.classList.remove("remove");
     showMap();
 }
 
@@ -90,7 +92,7 @@ function showMap() {
             marker.bindPopup("Début de la course").openPopup();
         }
         if (i==coords.length-1) {
-            marker.bindPopup("Début de la course").openPopup();
+            marker.bindPopup("Fin de la course").openPopup();
         }
         markers[markers.length] = marker;
         markersCoords[markersCoords.length] = [coords[i].latitude, coords[i].longitude];

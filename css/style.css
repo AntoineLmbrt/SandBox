@@ -168,7 +168,8 @@ header {
 
 #map {
     width: 75%;
-    margin: auto;
+    height: 150px;
+    margin: 20px auto;
     padding: 10px;
     box-shadow: 5px 5px 5px;
     border-radius: 10px;
