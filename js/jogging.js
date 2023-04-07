@@ -14,7 +14,7 @@ function start() {
     beg = new Date();
     startBtn.classList.add("remove");
     stopBtn.classList.remove("remove");
-    interval = setInterval(getLocation, 1000);
+    interval = setInterval(getLocation, 10000);
 }
 
 function stop() {
