@@ -76,7 +76,7 @@ function showTimer() {
 function showMap() {
     var options = {
         center: [0,0],
-        zoom: 5
+        zoom: 10
     }
     var map = new L.map('map', options);
     var layer = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
