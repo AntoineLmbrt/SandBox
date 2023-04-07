@@ -91,7 +91,7 @@ header {
     text-align: center;
 }
 
-.content h3, .description {
+.content h3, .content h5, .description {
     color: #F8F8F8;
 }
 

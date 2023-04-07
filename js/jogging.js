@@ -1,59 +1,89 @@
-const play = document.querySelector(".play");
+const startBtn = document.querySelector(".start");
+const stopBtn = document.querySelector(".stop");
 const distanceValue = document.querySelector(".distance-value");
 const timerValue = document.querySelector(".timer-value");
 
-const lat = [];
-const long = [];
-let interval = null;
-let distance = 0;
+var coords = [];
+var interval = null;
+var distance = 0;
 let timer = 0;
 let beg;
 let end;
 
 function start() {
     beg = new Date();
-    play.classList.remove("start");
-    play.classList.add("stop");
-    play.onclick = "stop"
+    startBtn.classList.add("remove");
+    stopBtn.classList.remove("remove");
     interval = setInterval(getLocation, 1000);
 }
 
 function stop() {
     end = new Date();
-    play.classList.remove("stop");
-    play.classList.add("start");
+    stopBtn.classList.add("remove");
+    startBtn.classList.remove("remove");
     clearInterval(interval);
     distanceValue.innerHTML = Math.round(distance);
-    timerValue.innerHTML = showTimer();
+    timerValue.innerHTML = "Temps : " + showTimer();
 }
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showDistance);
+        navigator.geolocation.getCurrentPosition(updateDistance);
     } else {
         alert("La géolocalisation n'est pas possible sur ce navigateur");
     }
 }
 
 function updateDistance(position) {
-    lat[lat.length] = position.coords.latitute;
-    long[long.length] = position.coords.longitude;
-    for (let i=0 ; i<lat.length-1 ; i++) {
-        distance += getDistance(lat[i], long[i], lat[i+1], long[i+1]);
-    }
+    coords[coords.length] = position.coords;
+    if (coords.length>2)
+        distance += getDistance(coords[coords.length-2], coords[coords.length-1]);
     distanceValue.innerHTML = Math.round(distance);
 }
 
-function getDistance(lat1, long1, lat2, long2) {
+function getDistance(coords1, coords2) {
     earthRadius = 6371000;
-    return earthRadius * (Math.PI/2 - Math.asin( Math.sin(rad(lat2)) * Math.sin(rad(lat1)) + Math.cos(rad(long2) - rad(long1)) * Math.cos(rad(lat2)) * Math.cos(rad(lat1))));
+    const lat = rad(coords2.latitude-coords1.latitude);
+    const long = rad(coords2.longitude-coords1.longitude);
+    const a = Math.sin(lat/2)*Math.sin(lat/2) + Math.cos(rad(coords1.latitude))*Math.cos(rad(coords2.latitude))*Math.sin(long/2)*Math.sin(long/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return earthRadius * c;
 }
 
 function rad(angle) {
-    return (Math.PI * angle) / 180;
+    return angle * Math.PI/180;
 }
 
 function showTimer() {
     timer = end - beg;
-    return timer.getHours + "H" + timer.getMinutes + "M" + timer.getSeconds + "S";
+    return timer.getHours() + "H" + timer.getMinutes() + "M" + timer.getSeconds();
+}
+
+function showMap() {
+    var options = {
+        center: [0,0],
+        zoom: 15
+    }
+    var map = new L.map('map', options);
+    var mainLayer = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+    map.addLayer(mainLayer);
+
+    const markers = [];
+    const markersCoords = [];
+
+    for (let i=0; i<coords.length; i++) {
+        var marker = L.marker([coords[i].latitude, coords[i].longitude]).addTo(map);
+        if (i==0) {
+            marker.bindPopup("Début de la course").openPopup();
+        }
+        if (i==coords.length-1) {
+            marker.bindPopup("Début de la course").openPopup();
+        }
+        markers[markers.length] = marker;
+        markersCoords[markersCoords.length] = [coords[i].latitude, coords[i].longitude];
+    }
+
+    var polyline = L.polyline(markersCoords, {color: "red"}).addTo(map);
+
 }
