@@ -166,6 +166,15 @@ header {
     border-radius: 100%;
 }
 
+#map {
+    width: 75%;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 5px 5px 5px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 .good {
     background: #71BF74;
     border: 5px solid #5E9F61;
@@ -176,7 +185,7 @@ header {
     border: 5px solid #DF4343;
 }
 
-.play:hover {
+.start:hover, .stop:hover {
     color: #F8F8F8;
 }
 

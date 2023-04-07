@@ -2,13 +2,14 @@ const startBtn = document.querySelector(".start");
 const stopBtn = document.querySelector(".stop");
 const distanceValue = document.querySelector(".distance-value");
 const timerValue = document.querySelector(".timer-value");
+const map = document.querySelector("#map");
 
 var coords = [];
 var interval = null;
 var distance = 0;
 let timer = 0;
-let beg;
-let end;
+var beg;
+var end;
 
 function start() {
     beg = new Date();
@@ -24,6 +25,8 @@ function stop() {
     clearInterval(interval);
     distanceValue.innerHTML = Math.round(distance);
     timerValue.innerHTML = "Temps : " + showTimer();
+    showMap();
+    map.classList.remove(".remove");
 }
 
 function getLocation() {
@@ -65,9 +68,9 @@ function showMap() {
         zoom: 15
     }
     var map = new L.map('map', options);
-    var mainLayer = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
+    var layer = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
 
-    map.addLayer(mainLayer);
+    map.addLayer(layer);
 
     const markers = [];
     const markersCoords = [];
