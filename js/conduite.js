@@ -7,14 +7,12 @@ var interval = null;
 var speed = 0;
 
 function start() {
-    beg = new Date();
     startBtn.classList.add("remove");
     stopBtn.classList.remove("remove");
     interval = setInterval(getLocation, 1000);
 }
 
 function stop() {
-    end = new Date();
     stopBtn.classList.add("remove");
     startBtn.classList.remove("remove");
     clearInterval(interval);

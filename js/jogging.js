@@ -3,6 +3,7 @@ const stopBtn = document.querySelector(".stop");
 const distanceValue = document.querySelector(".distance-value");
 const timerValue = document.querySelector(".timer-value");
 const map = document.querySelector(".map");
+const menuIcon = document.querySelector(".menu-icon");
 
 var coords = [];
 var interval = null;
@@ -100,3 +101,7 @@ function showMap() {
     var polyline = L.polyline(markersCoords, {color: "red"}).addTo(map);
 
 }
+
+menuIcon.addEventListener('click', () => {
+    map.classList = navItems.classList.contains('mobile-menu') ? "app remove" : "app";
+});
