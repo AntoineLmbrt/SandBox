@@ -7,7 +7,6 @@ const map = document.querySelector(".map");
 var coords = [];
 var interval = null;
 var distance = 0;
-let timer = 0;
 var beg;
 var end;
 

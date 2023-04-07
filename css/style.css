@@ -112,7 +112,7 @@ header {
     text-align: justify;
 }
 
-.app .map {
+.app, .map {
     width: 75%;
     margin: auto;
     padding: 10px;
