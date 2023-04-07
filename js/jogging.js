@@ -2,7 +2,6 @@ const startBtn = document.querySelector(".start");
 const stopBtn = document.querySelector(".stop");
 const distanceValue = document.querySelector(".distance-value");
 const timerValue = document.querySelector(".timer-value");
-const map = document.querySelector("#map");
 
 var coords = [];
 var interval = null;
@@ -26,7 +25,6 @@ function stop() {
     distanceValue.innerHTML = Math.round(distance);
     timerValue.innerHTML = "Temps : " + showTimer();
     showMap();
-    map.classList.remove(".remove");
 }
 
 function getLocation() {
