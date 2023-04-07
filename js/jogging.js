@@ -101,6 +101,6 @@ function showMap() {
 
 }
 
-menuIcon.addEventListener('click', () => {
-    map.classList = navItems.classList.contains('mobile-menu') ? "app remove" : "app";
-});
+// menuIcon.addEventListener('click', () => {
+//     map.classList = navItems.classList.contains('mobile-menu') ? "app remove" : "app";
+// });
