@@ -2,7 +2,7 @@ const startBtn = document.querySelector(".start");
 const stopBtn = document.querySelector(".stop");
 const distanceValue = document.querySelector(".distance-value");
 const timerValue = document.querySelector(".timer-value");
-const map = document.getElementById("map");
+const map = document.querySelector(".map");
 
 var coords = [];
 var interval = null;
@@ -76,7 +76,7 @@ function showTimer() {
 function showMap() {
     var options = {
         center: [0,0],
-        zoom: 15
+        zoom: 5
     }
     var map = new L.map('map', options);
     var layer = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png');
